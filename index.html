@@ -3,16 +3,32 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <style>
+      #open-page-form {
+        display: flex;
+      }
+      #open-page-form > * {
+        margin: 10px;
+      }
+      #open-page-url {
+        flex: 1;
+      }
+      .error {
+        color: red;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-
+    <form id="open-page-form">
+      <label for="open-page-url">URL:</label>
+      <input id="open-page-url" type="text" placeholder="https://example.com">
+      <span id="open-page-url-error" class="error hidden"></span>
+      <input type="submit" value="Open Page">
+    </form>
     <script>
-      // You can also require other files to run in this process
       require('./renderer.js')
     </script>
   </body>
